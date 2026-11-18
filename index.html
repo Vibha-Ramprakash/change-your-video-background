@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Change Your Video Background</title>
+<meta name="description" content="Two ways to change the room behind you in a video: Claude (your $20 Pro plan) and Higgsfield Genjutsu. Prompts, steps and filming tips.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,900;1,800&family=Caveat:wght@700&display=swap">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}img{max-width:100%;display:block}
+:root{--bg:#0d0c0b;--card:#171513;--line:#2a2724;--ink:#f3eee8;--mute:#a59d94;--claude:#D97757;--hf:#d6ff3d;--mono:ui-monospace,Menlo,monospace}
+body{background:var(--bg);color:var(--ink);font:500 17px/1.55 Montserrat,system-ui,sans-serif;padding:20px max(16px,env(safe-area-inset-left)) 60px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(120% 70% at 50% 0%,#211d1a 0%,transparent 60%),linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px);background-size:auto,54px 54px,54px 54px}
+main{max-width:660px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
+.tag{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:7px 12px}
+.tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--c,var(--claude))}
+h1{font:900 clamp(40px,11vw,64px)/.98 Montserrat;letter-spacing:-.03em;text-transform:uppercase}
+h1 em{font:700 clamp(40px,11vw,62px)/1 Caveat;text-transform:none;color:var(--claude);letter-spacing:0;display:block;text-shadow:0 3px 0 #000,0 0 26px #d9775766}
+.lead{color:var(--mute);max-width:34em}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ba figure{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.ba figcaption{position:absolute;left:10px;top:10px;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;background:#000a;padding:6px 9px;border-radius:99px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:14px}
+.way{display:flex;align-items:center;gap:12px}
+.way .ic{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;flex:none}
+.way .ic img{width:30px;height:30px}
+h2{font:900 26px/1.1 Montserrat;letter-spacing:-.02em}
+h2 small{display:block;font:500 12px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+h3{font:800 18px/1.25 Montserrat}
+ol{padding-left:22px;display:flex;flex-direction:column;gap:8px}
+ul{padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.prompt{position:relative;background:#0a0908;border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;font:500 14.5px/1.55 var(--mono);white-space:pre-wrap;color:#e9e2da}
+.prompt b{display:block;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
+.copy{position:absolute;right:10px;top:10px;font:700 12px/1 Montserrat;background:var(--ink);color:#000;border:0;border-radius:99px;padding:8px 12px;cursor:pointer}
+.note{border-left:3px solid var(--c,var(--claude));padding:4px 0 4px 12px;color:#d8d1c9}
+.shot{border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+td,th{text-align:left;padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
+th{font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);border-top:0}
+.cta{background:linear-gradient(135deg,#231a15,#171513);border-color:#5a3a2b;text-align:center;align-items:center}
+.btn{display:inline-block;background:var(--claude);color:#120c09;font:900 16px/1 Montserrat;padding:15px 22px;border-radius:99px;text-decoration:none}
+footer{text-align:center;color:var(--mute);font-size:14px}
+a{color:var(--claude)}
+</style></head>
+<body><main>
+
+<header style="display:flex;flex-direction:column;gap:16px">
+  <span class="tag">Guide · from the ROOM reel</span>
+  <h1>Change the room behind you<em>without reshooting</em></h1>
+  <p class="lead">Two ways. One uses Claude on the plan you already pay for. One uses Higgsfield and looks the most real. Here are the exact prompts and steps for both.</p>
+</header>
+
+<div class="ba">
+  <figure><img src="img/real.jpg" alt="My real room" loading="lazy"><figcaption>My real room</figcaption></figure>
+  <figure><img src="img/fake.jpg" alt="The same clip after Higgsfield Genjutsu" loading="lazy"><figcaption>After</figcaption></figure>
+</div>
+
+<section class="card">
+  <span class="tag">Before either way · 1 minute</span>
+  <h3>Film it so the swap looks clean</h3>
+  <ul>
+    <li>Phone on a stand, not in your hand. A still camera sells the fake.</li>
+    <li>Sit on something (a chair, a sofa). Then put a sofa or bench in the new room so you're not floating.</li>
+    <li>Leave space around your hair and shoulders. Plain walls behind you cut out cleanest.</li>
+    <li>Want things to change on a snap? Snap clearly, and cut on the snap, not on a word.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <div class="way"><span class="ic" style="background:#F4E9DD"><img src="img/claude-spark.svg" alt="Claude"></span>
+    <h2>Way 1 · Claude<small>Claude Pro, $20/mo · nothing extra</small></h2></div>
+  <p>Claude cuts you out of your real video, puts any photo behind you and matches the colours so it looks like you're there. Best for: a new background on a talking video.</p>
+  <ol>
+    <li>Open the <b>Claude desktop app</b> and go to the <b>Code</b> tab (it's in the Pro plan).</li>
+    <li>Make a folder with two files: your video (call it <code>talk.mp4</code>) and the background photo you want (<code>background.jpg</code>). Pick that folder in Claude.</li>
+    <li>Paste this prompt:</li>
+  </ol>
+  <div class="prompt"><b>Prompt 1 · change my background</b><button class="copy">Copy</button>In this folder there's my video (talk.mp4) and a photo (background.jpg).
+Cut me out of every frame of the video, put the photo behind me, and match the colours and light of the photo to me so it looks like I'm really there.
+Keep my hair edges clean and keep my audio exactly as it is.
+Show me one still frame first. When I say yes, export the full video as room.mp4.</div>
+  <p>Then fine-tune it like you'd talk to an editor:</p>
+  <div class="prompt"><b>Prompt 2 · fine-tune</b><button class="copy">Copy</button>Make it look more real: warm the background a little, blur it slightly like a real camera, and move me down so I'm sitting on the sofa in the photo. Show me a frame again.</div>
+  <p class="note">What it can't do: change your clothes or the light on your face. For that, use Way 2.</p>
+</section>
+
+<section class="card" style="--c:var(--hf)">
+  <div class="way"><span class="ic" style="background:#000;border:1px solid var(--line)"><img src="img/higgsfield.png" alt="Higgsfield"></span>
+    <h2>Way 2 · Higgsfield Genjutsu<small>Uses credits · not sponsored</small></h2></div>
+  <p>Genjutsu edits your real video: it swaps the room, your outfit and even the light on your face, and keeps your face yours. Best for: when it has to fool everyone.</p>
+  <div class="shot"><img src="img/genjutsu_landing.jpg" alt="Higgsfield Genjutsu page" loading="lazy"></div>
+  <ol>
+    <li>Go to <a href="https://higgsfield.ai" target="_blank" rel="noopener">higgsfield.ai</a> and open <b>Genjutsu</b>.</li>
+    <li>Upload your clip. Trim it first: it needs <b>at least 4 seconds</b>, and credits are charged per second.</li>
+    <li>Attach a reference photo of the room you want (and a photo of the outfit, if you're changing clothes).</li>
+    <li>Paste this prompt and generate:</li>
+  </ol>
+  <div class="prompt"><b>Prompt · room + outfit + light</b><button class="copy">Copy</button>Replace the room behind me with the room in the reference photo, at night with warm lamp light. I'm sitting on the sofa in that room.
+Change my top to the outfit in the reference. Keep my jeans.
+Keep my face, hair, body shape and movements exactly the same.</div>
+  <ul>
+    <li><b>One change per snap.</b> Do room, then outfit, then light as separate short clips and cut them together on your snaps.</li>
+    <li>Clips come back a little shorter than you sent (4s came back as about 3.7s). Leave a bit of spare video at the end.</li>
+    <li>Check your face, clothes and trousers in every clip. If something drifts (a colour, your shape), regenerate that one clip.</li>
+  </ul>
+</section>
+
+<section class="card">
+  <span class="tag">Which one?</span>
+  <table>
+    <tr><th>You want</th><th>Use</th></tr>
+    <tr><td>Just a new background</td><td><b>Claude</b>. Honestly good enough.</td></tr>
+    <tr><td>New room + outfit + lighting</td><td><b>Higgsfield Genjutsu</b></td></tr>
+    <tr><td>No extra cost</td><td><b>Claude</b> (on your Pro plan)</td></tr>
+    <tr><td>It has to look 100% real</td><td><b>Higgsfield Genjutsu</b></td></tr>
+  </table>
+</section>
+
+<section class="card cta">
+  <span class="tag">Day 2 of building Hop 🐇</span>
+  <h2>Or just talk to your phone</h2>
+  <p>I'm building Hop: you'll do all of this inside the app by talking to it. No Claude subscription of your own needed.</p>
+  <a class="btn" href="https://tally.so/r/q5D6YO" target="_blank" rel="noopener">Join the Hop waitlist</a>
+</section>
+
+<footer>Made by <a href="https://instagram.com/vibha.in.progress" target="_blank" rel="noopener">@vibha.in.progress</a></footer>
+</main>
+<script>
+document.querySelectorAll('.copy').forEach(b=>b.onclick=async()=>{const t=b.parentElement.cloneNode(true);t.querySelectorAll('b,button').forEach(x=>x.remove());try{await navigator.clipboard.writeText(t.textContent.trim());b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)}catch(e){}});
+</script>
+</body></html>
